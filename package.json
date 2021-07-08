@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/timeonator/webpack-learning#readme",
   "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
     "jquery": "^3.6.0",
     "webpack": "^5.44.0"
   },
