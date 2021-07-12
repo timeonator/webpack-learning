@@ -15,4 +15,4 @@ const App = () => {
     return(<h1> React Webpack, Yeah Hah!! </h1>)
 }
 
-ReactDom.render (<App />, document.getElementById('target'))
+ReactDom.render (<App />, document.getElementById('root'))
