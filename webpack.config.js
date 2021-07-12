@@ -1,9 +1,28 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require("path");
 
 module.exports = {
     mode: 'development',
     entry: "./src/index.js",
+    devtool: 'inline-source-map',
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Development',
+            inject:'body',
+        })
+    ],
+    devServer: {
+        port: 8080,
+        onListening: function (server) {
+            const port = server.listeningApp.address().port;
+            console.log('Listening on port:', port);
+        },
+        historyApiFallback: true,
+        publicPath: "/",
+        contentBase: '/dist',
+    },
     output: {
+        publicPath: "/",
         filename: "main.js",
         path: path.resolve(__dirname, "dist")
     },
@@ -18,6 +37,15 @@ module.exports = {
                         presets: ['@babel/preset-env', '@babel/preset-react'],
                     }
                 }                
+            },
+            {
+                test: /\.css$/,
+                use: 
+                [
+                    {loader: 'style-loader'},
+                    {loader: 'css-loader'},
+                ]
+
             }
 
         ]
